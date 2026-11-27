@@ -1,0 +1,364 @@
+[gd_scene format=3 uid="uid://elfq4awp0xwx"]
+
+[ext_resource type="Script" uid="uid://dwhpowbrrlpw2" path="res://scripts/whippet.gd" id="1_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://bigpas36s0clj" path="res://textures/pad.png" id="2_0xm2m"]
+[ext_resource type="Shader" uid="uid://ld7q20kdvkq1" path="res://shaders/glow.gdshader" id="2_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://bbjc54bmpv3f8" path="res://textures/arrow_right.png" id="2_82xsv"]
+[ext_resource type="Texture2D" uid="uid://dxywn0dr30pgi" path="res://textures/arrow_up.png" id="2_cegan"]
+[ext_resource type="Texture2D" uid="uid://u0wwbdj8ckow" path="res://textures/circleG.png" id="2_dg77c"]
+[ext_resource type="Script" uid="uid://cmxwctyqvjlp3" path="res://scripts/ball.gd" id="2_w48qg"]
+[ext_resource type="Script" uid="uid://cn6tblvjsaomx" path="res://scripts/lsd.gd" id="2_yaehf"]
+[ext_resource type="Script" uid="uid://cieaid63ah8cv" path="res://right_button.gd" id="3_getpj"]
+[ext_resource type="Script" uid="uid://cnf5ht48aeorn" path="res://scripts/joint.gd" id="3_yaehf"]
+[ext_resource type="Script" uid="uid://bxbu4mnln8h56" path="res://scripts/alcohol.gd" id="4_074og"]
+[ext_resource type="Texture2D" uid="uid://puc614rf26im" path="res://textures/arrow_left.png" id="4_ryguw"]
+[ext_resource type="Script" uid="uid://bx23rthnkslty" path="res://scripts/pad.gd" id="4_vivmo"]
+[ext_resource type="Texture2D" uid="uid://cq27li728kbso" path="res://textures/walls_clipped.png" id="5_272bh"]
+[ext_resource type="Script" uid="uid://bsuehmajrujk6" path="res://left_button.gd" id="5_d13ii"]
+[ext_resource type="Script" uid="uid://bms7lq2ddku65" path="res://up_button.gd" id="7_1u8w0"]
+[ext_resource type="Script" uid="uid://dbf4xl5hm38q7" path="res://scripts/target.gd" id="7_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://dj525jft478b0" path="res://textures/alcohol.png" id="7_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://cll8j25ng6xpe" path="res://textures/l.png" id="8_lswn8"]
+[ext_resource type="Texture2D" uid="uid://wpir1u5yvx1d" path="res://textures/joint.png" id="8_w48qg"]
+[ext_resource type="Script" uid="uid://bsrmkn3a1wtwu" path="res://swing_left_button.gd" id="9_a6jrf"]
+[ext_resource type="Texture2D" uid="uid://b4rtb2n4s5oqi" path="res://textures/lsd.png" id="9_vivmo"]
+[ext_resource type="Texture2D" uid="uid://cyrs2w5ofuw4k" path="res://textures/whippet.png" id="10_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://lm57vdb7h681" path="res://textures/r.png" id="10_xuqvo"]
+[ext_resource type="Script" uid="uid://c7n7dbne08qd0" path="res://swing_right_button.gd" id="11_qsp4k"]
+[ext_resource type="Texture2D" uid="uid://12x3v0mw63fi" path="res://textures/med.png" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://bqimb7w1wqsmh" path="res://scripts/med.gd" id="12_yaehf"]
+[ext_resource type="FontFile" uid="uid://bt5gor8j8wp28" path="res://fonts/digital-7.ttf" id="13_ycdy4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cegan"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qinxo"]
+viewport_path = NodePath("Whippet Port")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3o3xo"]
+viewport_path = NodePath("Whippet Port/LSD Port")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yaehf"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_s67ad"]
+viewport_path = NodePath("Whippet Port/LSD Port/Joint Port")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2cqfq"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_w14sr"]
+viewport_path = NodePath("Whippet Port/LSD Port/Joint Port/Alcohol Port")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w48qg"]
+shader = ExtResource("2_2cqfq")
+shader_parameter/bloomRadius = 5.0
+shader_parameter/bloomThreshold = 0.3
+shader_parameter/bloomIntensity = 1.0
+shader_parameter/bg_color = Vector3(0.302, 0.302, 0.302)
+shader_parameter/bg_epsilon = 0.01
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fss48"]
+viewport_path = NodePath("Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port")
+
+[sub_resource type="GDScript" id="GDScript_vivmo"]
+script/source = "extends TextureRect
+
+#func _ready():
+	#var viewPort = get_node(\"/root/Main/SubViewport\")
+	#var textureRect = self
+	#textureRect.texture = viewPort.get_texture()
+"
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pmmcv"]
+radius = 25.079872
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
+radius = 25.0
+height = 200.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w14sr"]
+size = Vector2(1280, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmmcv"]
+size = Vector2(50, 620)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fss48"]
+radius = 8.339998
+
+[sub_resource type="LabelSettings" id="LabelSettings_pmmcv"]
+font = ExtResource("13_ycdy4")
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_272bh"]
+font = ExtResource("13_ycdy4")
+font_size = 70
+
+[node name="Main" type="Node2D" unique_id=941689497]
+
+[node name="Whippet" type="TextureRect" parent="." unique_id=432804527]
+material = SubResource("ShaderMaterial_cegan")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("ViewportTexture_qinxo")
+script = ExtResource("1_2cqfq")
+
+[node name="Right Button" type="Button" parent="." unique_id=949844958]
+modulate = Color(1, 1, 1, 0.39215687)
+offset_left = 224.0
+offset_top = 576.0
+offset_right = 332.0
+offset_bottom = 684.0
+offset_transform_position = Vector2(2.085, 0)
+icon = ExtResource("2_82xsv")
+script = ExtResource("3_getpj")
+
+[node name="Left Button" type="Button" parent="." unique_id=677673810]
+modulate = Color(1, 1, 1, 0.39215687)
+offset_left = 64.0
+offset_top = 576.0
+offset_right = 172.0
+offset_bottom = 684.0
+offset_transform_position = Vector2(2.085, 0)
+icon = ExtResource("4_ryguw")
+script = ExtResource("5_d13ii")
+
+[node name="Up Button" type="Button" parent="." unique_id=923485721]
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = 1104.0
+offset_top = 416.0
+offset_right = 1212.0
+offset_bottom = 524.0
+offset_transform_position = Vector2(2.085, 0)
+icon = ExtResource("2_cegan")
+script = ExtResource("7_1u8w0")
+
+[node name="Swing Left Button" type="Button" parent="." unique_id=88325028]
+modulate = Color(1, 1, 1, 0.39215687)
+offset_left = 944.0
+offset_top = 576.0
+offset_right = 1052.0
+offset_bottom = 684.0
+offset_transform_position = Vector2(2.085, 0)
+icon = ExtResource("8_lswn8")
+script = ExtResource("9_a6jrf")
+
+[node name="Swing Right Button" type="Button" parent="." unique_id=2142147850]
+modulate = Color(1, 1, 1, 0.39215687)
+offset_left = 1104.0
+offset_top = 576.0
+offset_right = 1212.0
+offset_bottom = 684.0
+offset_transform_position = Vector2(2.085, 0)
+icon = ExtResource("10_xuqvo")
+script = ExtResource("11_qsp4k")
+
+[node name="Whippet Port" type="SubViewport" parent="." unique_id=479903161]
+size = Vector2i(1280, 720)
+
+[node name="LSD" type="TextureRect" parent="Whippet Port" unique_id=1539795365]
+material = SubResource("ShaderMaterial_074og")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("ViewportTexture_3o3xo")
+script = ExtResource("2_yaehf")
+
+[node name="LSD Port" type="SubViewport" parent="Whippet Port" unique_id=292759224]
+size = Vector2i(1280, 720)
+
+[node name="Joint" type="TextureRect" parent="Whippet Port/LSD Port" unique_id=520479420]
+material = SubResource("ShaderMaterial_yaehf")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("ViewportTexture_s67ad")
+script = ExtResource("3_yaehf")
+
+[node name="Joint Port" type="SubViewport" parent="Whippet Port/LSD Port" unique_id=1845228508]
+size = Vector2i(1280, 720)
+
+[node name="Alcohol" type="TextureRect" parent="Whippet Port/LSD Port/Joint Port" unique_id=949461458]
+material = SubResource("ShaderMaterial_2cqfq")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("ViewportTexture_w14sr")
+script = ExtResource("4_074og")
+
+[node name="Alcohol Port" type="SubViewport" parent="Whippet Port/LSD Port/Joint Port" unique_id=1273533719]
+size = Vector2i(1280, 720)
+
+[node name="Glow" type="TextureRect" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port" unique_id=590414693]
+material = SubResource("ShaderMaterial_w48qg")
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = SubResource("ViewportTexture_fss48")
+script = SubResource("GDScript_vivmo")
+
+[node name="Glow Port" type="SubViewport" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port" unique_id=1199533214]
+size = Vector2i(1280, 720)
+
+[node name="Ball" type="RigidBody2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port" unique_id=1381266857]
+position = Vector2(640, 550)
+physics_material_override = SubResource("PhysicsMaterial_0xm2m")
+continuous_cd = 2
+script = ExtResource("2_w48qg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Ball" unique_id=97727538]
+texture = ExtResource("2_dg77c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Ball" unique_id=2134718845]
+shape = SubResource("CircleShape2D_pmmcv")
+
+[node name="Pad" type="CharacterBody2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port" unique_id=932339408]
+position = Vector2(640, 650)
+script = ExtResource("4_vivmo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Pad" unique_id=1442825562]
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Pad" unique_id=1765178355]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_0xm2m")
+
+[node name="Wall" type="StaticBody2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port" unique_id=1198043714]
+
+[node name="Sprite2D" type="Sprite2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Wall" unique_id=1419109450]
+position = Vector2(640, 410)
+texture = ExtResource("5_272bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Wall" unique_id=2116740752]
+position = Vector2(640, 125)
+shape = SubResource("RectangleShape2D_w14sr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Wall" unique_id=62450170]
+position = Vector2(25, 410)
+shape = SubResource("RectangleShape2D_pmmcv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Wall" unique_id=371700888]
+position = Vector2(1255, 410)
+shape = SubResource("RectangleShape2D_pmmcv")
+
+[node name="Target" type="Area2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port" unique_id=308598368]
+script = ExtResource("7_2cqfq")
+
+[node name="ALCOHOL" type="Sprite2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Target" unique_id=1015798164]
+visible = false
+texture = ExtResource("7_ycdy4")
+
+[node name="JOINT" type="Sprite2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Target" unique_id=1454905026]
+visible = false
+texture = ExtResource("8_w48qg")
+
+[node name="LSD" type="Sprite2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Target" unique_id=684728921]
+visible = false
+texture = ExtResource("9_vivmo")
+
+[node name="WHIPPET" type="Sprite2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Target" unique_id=1274849205]
+visible = false
+texture = ExtResource("10_2cqfq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Target" unique_id=1497657634]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_fss48")
+
+[node name="Med" type="Area2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port" unique_id=584058638]
+script = ExtResource("12_yaehf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Med" unique_id=2056024352]
+texture = ExtResource("12_dg77c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Med" unique_id=398699825]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_fss48")
+
+[node name="Timer" type="Timer" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Med" unique_id=1510210585]
+wait_time = 10.0
+one_shot = true
+
+[node name="Score" type="Node" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port" unique_id=958626369]
+
+[node name="Score" type="Label" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Score" unique_id=1856556767]
+offset_right = 100.0
+offset_bottom = 100.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_pmmcv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ALCOHOL" type="Label" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Score" unique_id=1947346774]
+offset_left = 1180.0
+offset_right = 1280.0
+offset_bottom = 100.0
+text = "0"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ALCOHOL_S" type="Sprite2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Score" unique_id=221183132]
+position = Vector2(1130, 50)
+scale = Vector2(2, 2)
+texture = ExtResource("7_ycdy4")
+
+[node name="JOINT" type="Label" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Score" unique_id=303615541]
+offset_left = 980.0
+offset_right = 1080.0
+offset_bottom = 100.0
+text = "0"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JOINT_S" type="Sprite2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Score" unique_id=1801084802]
+position = Vector2(930, 50)
+scale = Vector2(2, 2)
+texture = ExtResource("8_w48qg")
+
+[node name="LSD" type="Label" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Score" unique_id=194719396]
+offset_left = 780.0
+offset_right = 880.0
+offset_bottom = 100.0
+text = "0"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LSD_S" type="Sprite2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Score" unique_id=1635306030]
+position = Vector2(730, 50)
+scale = Vector2(2, 2)
+texture = ExtResource("9_vivmo")
+
+[node name="WHIPPET" type="Label" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Score" unique_id=938046762]
+offset_left = 580.0
+offset_right = 680.0
+offset_bottom = 100.0
+text = "0"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WHIPPET_S" type="Sprite2D" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Score" unique_id=2065499184]
+position = Vector2(530, 50)
+scale = Vector2(2, 2)
+texture = ExtResource("10_2cqfq")
+
+[node name="Reset Button" type="Button" parent="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port" unique_id=1249197344]
+visible = false
+offset_left = 1015.0
+offset_top = 175.0
+offset_right = 1192.0
+offset_bottom = 260.0
+text = "Reset"
+
+[connection signal="restart" from="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Ball" to="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Ball" method="_on_restart"]
+[connection signal="restart" from="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Ball" to="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Pad" method="_on_restart"]
+[connection signal="restart" from="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Ball" to="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Target" method="_on_ball_restart"]
+[connection signal="restart" from="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Ball" to="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Med" method="_on_ball_restart"]
+[connection signal="use_drug" from="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Target" to="Whippet" method="_on_target_use_drug"]
+[connection signal="use_drug" from="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Target" to="Whippet Port/LSD" method="_on_target_use_drug"]
+[connection signal="use_drug" from="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Target" to="Whippet Port/LSD Port/Joint" method="_on_target_use_drug"]
+[connection signal="use_drug" from="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Target" to="Whippet Port/LSD Port/Joint Port/Alcohol" method="_on_target_use_drug"]
+[connection signal="drug_fix" from="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Med" to="Whippet" method="_on_med_drug_fix"]
+[connection signal="drug_fix" from="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Med" to="Whippet Port/LSD" method="_on_med_drug_fix"]
+[connection signal="drug_fix" from="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Med" to="Whippet Port/LSD Port/Joint" method="_on_med_drug_fix"]
+[connection signal="drug_fix" from="Whippet Port/LSD Port/Joint Port/Alcohol Port/Glow Port/Med" to="Whippet Port/LSD Port/Joint Port/Alcohol" method="_on_med_drug_fix"]
